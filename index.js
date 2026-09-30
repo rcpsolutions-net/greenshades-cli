@@ -7,7 +7,7 @@ import createEmployeeCommands from './commands/employees.ts';
 import createPayrecordCommands from './commands/payrecord.ts';
 import createPayrollCommands from './commands/settings.ts';
 import createDepartmentCommands from './commands/department.ts';
-import createWebhookCommands from './commands/webhooks.ts';
+import createWebhookCommands from './commands/webhooks/index.ts';
 import createLocationCommands from './commands/locations.ts';
 import createPositionCommands from './commands/positions.ts';
 import createPlacementCommands from './commands/placements.ts';
