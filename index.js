@@ -5,7 +5,7 @@ import pkg from './package.json' with { type: 'json' };
 import createAuthCommand from './commands/auth.js';
 import createEmployeeCommands from './commands/employees.ts';
 import createPayrecordCommands from './commands/payrecord.ts';
-import createPayrollCommands from './commands/settings.ts';
+import createPayrollCommands from './commands/settings/index.ts';
 import createDepartmentCommands from './commands/department.ts';
 import createWebhookCommands from './commands/webhooks/index.ts';
 import createLocationCommands from './commands/locations.ts';
