@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import { writeFileSync } from 'node:fs';
 import chalk from 'chalk';
 import apiClient from '../../lib/api.ts';
