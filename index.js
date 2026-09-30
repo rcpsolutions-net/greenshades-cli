@@ -16,7 +16,7 @@ import createPayrunCommands from './commands/payrun.ts';
 import createClassCommands from './commands/classes.ts';
 import createCustomFieldCommands from './commands/custom.ts';
 import createLogCommands from './commands/logs.ts';
-import createDirectDepositCommands from './commands/direct-deposit.ts';
+import createDirectDepositCommands from './commands/direct-deposit/index.ts';
 
 const program = new Command();
 
