@@ -11,7 +11,7 @@ import createWebhookCommands from './commands/webhooks/index.ts';
 import createLocationCommands from './commands/locations.ts';
 import createPositionCommands from './commands/positions.ts';
 import createPlacementCommands from './commands/placements.ts';
-import createReportCommands from './commands/report.ts';
+import createReportCommands from './commands/reports/index.ts';
 import createPayrunCommands from './commands/payrun.ts';
 import createClassCommands from './commands/classes.ts';
 import createCustomFieldCommands from './commands/custom.ts';
