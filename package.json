@@ -1,14 +1,14 @@
 {
   "name": "greenshades-cli",
   "version": "1.0.0",
-  "description": "GS cli tool",
+  "description": "GreenShades payroll API CLI",
   "main": "index.js",
   "bin": {
     "greenshades": "./bin/greenshades.js"
   },
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test test/endpoints.test.js",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
