@@ -147,7 +147,7 @@
     "category": "Employees: Payroll Settings",
     "name": "Remove benefit code assignment(s) from employee",
     "method": "POST",
-    "url": "https://developer.greenshades.com/v1.0.20260302/reference/removeemployeebenefits"
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteemployeebenefits"
   },
   {
     "category": "Employees: Payroll Settings",
@@ -165,7 +165,7 @@
     "category": "Employees: Payroll Settings",
     "name": "Remove deduction code assignment(s) from employee",
     "method": "POST",
-    "url": "https://developer.greenshades.com/v1.0.20260302/reference/removeemployeedeductions"
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteemployeedeductions"
   },
   {
     "category": "Employees: Custom Fields",

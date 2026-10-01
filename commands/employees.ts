@@ -523,15 +523,31 @@ function createEmployeeCommands() {
       }
     });
 
-  // --- BENEFITS REMOVE (DELETE /employees/{id}/payroll/benefits) ---
-  employees.command('benefits-remove <employee-id>')
-    .description("Remove all of an employee's benefit code assignments")
-    .action(async (employeeId) => {
+  // --- BENEFITS REMOVE (POST /employees/{id}/payroll/benefits/delete) ---
+  employees.command('benefits-remove <employee-id> [codeIds...]')
+    .description("Remove benefit code assignments from an employee (all of them if no code IDs given)")
+    .action(async (employeeId, codeIds: string[]) => {
       try {
-        console.log(chalk.blue(`Removing benefit codes for employee ${employeeId}...`));
+        let ids: string[];
 
-        await apiClient.delete(`/employees/${employeeId}/payroll/benefits`);
-        console.log(chalk.green(`✅ Successfully removed benefit codes for employee ${employeeId}.`));
+        if (codeIds.length > 0) {
+          ids = codeIds;
+        } else {
+          const response = await apiClient.get(`/employees/${employeeId}/payroll/benefits`);
+          ids = (response.data || []).map((b: any) => String(b.benefitCodeId));
+          if (ids.length === 0) {
+            console.log(chalk.yellow(`Employee ${employeeId} has no benefit codes to remove.`));
+            return;
+          }
+        }
+
+        console.log(chalk.blue(`Removing ${ids.length} benefit code(s) for employee ${employeeId}...`));
+        const result = await apiClient.post(`/employees/${employeeId}/payroll/benefits/delete`, ids);
+        const data = result.data || {};
+        console.log(chalk.green(`✅ Removed ${data.deletedCodes?.length ?? 0} benefit code(s) for employee ${employeeId}.`));
+        if (data.invalidCodes?.length) {
+          console.error(chalk.yellow(`Invalid code IDs: ${data.invalidCodes.join(', ')}`));
+        }
       } catch (error: any) {
         console.error(chalk.red(`Error removing benefit codes for employee ${employeeId}:`, error.message));
         process.exit(1);
@@ -591,15 +607,31 @@ function createEmployeeCommands() {
       }
     });
 
-  // --- DEDUCTIONS REMOVE (DELETE /employees/{id}/payroll/deductions) ---
-  employees.command('deductions-remove <employee-id>')
-    .description("Remove all of an employee's deduction code assignments")
-    .action(async (employeeId) => {
+  // --- DEDUCTIONS REMOVE (POST /employees/{id}/payroll/deductions/delete) ---
+  employees.command('deductions-remove <employee-id> [codeIds...]')
+    .description("Remove deduction code assignments from an employee (all of them if no code IDs given)")
+    .action(async (employeeId, codeIds: string[]) => {
       try {
-        console.log(chalk.blue(`Removing deduction codes for employee ${employeeId}...`));
+        let ids: string[];
 
-        await apiClient.delete(`/employees/${employeeId}/payroll/deductions`);
-        console.log(chalk.green(`✅ Successfully removed deduction codes for employee ${employeeId}.`));
+        if (codeIds.length > 0) {
+          ids = codeIds;
+        } else {
+          const response = await apiClient.get(`/employees/${employeeId}/payroll/deductions`);
+          ids = (response.data || []).map((d: any) => String(d.deductionCodeId));
+          if (ids.length === 0) {
+            console.log(chalk.yellow(`Employee ${employeeId} has no deduction codes to remove.`));
+            return;
+          }
+        }
+
+        console.log(chalk.blue(`Removing ${ids.length} deduction code(s) for employee ${employeeId}...`));
+        const result = await apiClient.post(`/employees/${employeeId}/payroll/deductions/delete`, ids);
+        const data = result.data || {};
+        console.log(chalk.green(`✅ Removed ${data.deletedCodes?.length ?? 0} deduction code(s) for employee ${employeeId}.`));
+        if (data.invalidCodes?.length) {
+          console.error(chalk.yellow(`Invalid code IDs: ${data.invalidCodes.join(', ')}`));
+        }
       } catch (error: any) {
         console.error(chalk.red(`Error removing deduction codes for employee ${employeeId}:`, error.message));
         process.exit(1);

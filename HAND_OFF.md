@@ -312,13 +312,13 @@ These files are already single-command (~49-69 lines), not worth splitting:
 ### Drift Test
 `test/endpoints.test.js` (run via `npm test`) cross-checks every `apiClient` call in `commands/` + `lib/` against `api_endpoints.json` (102 reference endpoints) via the hand-maintained mapping in `test/endpoints.map.json`. Deterministic, no network. Fails on: unmapped reference entry, stale mapped call, unmapped code call, or new dynamic call site outside `dynamicPassthrough`.
 
-### Coverage Status: 100 implemented / 2 beta-unverified / 0 missing
+### Coverage Status: 102 implemented / 0 beta-unverified / 0 missing
 - **Employee settlements** (`POST /employees/settlements`) — was the one missing endpoint; now implemented as `employee settlements` (bulk, `-f`/`-d` JSON array of `{ employeeId, payPeriod, checkNumber?, payPeriodStart? }`).
 - **Single-pay-run cost report** (`GET /payroll/reports/pay-runs/{payRunId}/cost`) — was partially covered; now exposed via `report costs --pay-run <id>` (distinct path from the date-range `GET /payroll/reports/cost`).
 - **Reference file URL fixes** — `api_endpoints.json` had two wrong doc URLs for the cost reports: single-pay-run pointed at the date-range page, and date-range pointed at a 404 page. Both corrected (`executepayruncostreport` / `executecostreport`).
+- **Benefit/deduction removal (live-verified 2026-10-01)** — the old `DELETE /employees/{id}/payroll/benefits|deductions` routes return **405** on the live API. Correct route is `POST /employees/{id}/payroll/benefits/delete` and `POST /employees/{id}/payroll/deductions/delete` with a required body of code-ID strings. `benefits-remove` / `deductions-remove` now take optional variadic code IDs (`[codeIds...]`); with none given they fetch the employee's current codes and remove all of them. Doc URLs in `api_endpoints.json` fixed (`removeemployee*` → `deleteemployee*`, the old slugs 404).
 
-### Remaining beta-unverified (needs live API to resolve)
-| Endpoint | Issue |
-|---|---|
-| `DELETE /employees/*/payroll/benefits` | Reference documents `POST`; code uses `DELETE` — confirm against live API |
-| `DELETE /employees/*/payroll/deductions` | Reference documents `POST`; code uses `DELETE` — confirm against live API |
+### Live-verification notes
+- Probes were run against the live API with zero mutations (fake employee IDs → documented 404s; nonexistent code IDs → 200 with empty `deletedCodes`).
+- Code IDs are 18–19 digit snowflakes (> `Number.MAX_SAFE_INTEGER`); the API accepts them as strings, so the CLI sends strings.
+- API rate limit: 1000 calls/minute — avoid large parallel scans.
