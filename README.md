@@ -160,11 +160,62 @@ greenshades auth status      # Show current authentication status
 ### Employees
 
 ```bash
-greenshades employee list [--nativeId <id>]    # List all employees, optionally filtered
-greenshades employee pull <employeeId>          # Get a single employee by ID
-greenshades employee dependents <employeeId>    # Get employee dependents
-greenshades employee contacts <employeeId>      # Get employee contacts
-greenshades employee customFields <employeeId>  # Get employee custom fields
+greenshades employee list [--nativeId <id>]                  # List all employees, optionally filtered
+greenshades employee pull <employeeId>                       # Get a single employee by ID
+greenshades employee dependents <employeeId>                 # Get employee dependents
+greenshades employee contacts <employeeId>                   # Get employee contacts
+greenshades employee timeoff <employeeId>                    # Get employee time-off balances
+greenshades employee customFields <employeeId>               # Get employee custom fields
+greenshades employee update [options] <employeeId>           # Modify an employee's profile
+greenshades employee create [options]                        # Create a new employee
+greenshades employee bulk [options]                          # Bulk create/update employees (upsert by nativeId)
+greenshades employee dd <employeeId>                         # Get direct deposit settings
+greenshades employee dd-update [options] <employeeId>        # Update direct deposit settings (overwrites all)
+greenshades employee dd-delete <employeeId>                  # Delete all direct deposit settings
+greenshades employee earnings <employeeId>                   # Get assigned earning codes with rates/maximums
+greenshades employee payroll-tax <employeeId> <taxId>        # Get payroll tax setup for a tax
+greenshades employee payroll-tax-update [options] <employeeId> <taxId>   # Save/update payroll tax setup
+greenshades employee pay-schedule <employeeId>               # Get assigned pay schedule
+greenshades employee pay-schedule-set <employeeId> <payScheduleId>       # Assign a pay schedule
+greenshades employee pay-schedule-remove <employeeId>        # Remove pay schedule assignment
+greenshades employee timeoff-code [options] <employeeId> <codeId>        # Assign/update a time-off code
+```
+
+#### Payroll codes (benefits & deductions)
+
+```bash
+greenshades employee benefits <employeeId>                     # Get assigned benefit codes
+greenshades employee benefits-update [options] <employeeId>    # Replace all benefit codes (-f/-d/-c)
+greenshades employee benefits-remove <employeeId> [codeIds...] # Remove benefit codes (all of them if no code IDs given)
+greenshades employee deductions <employeeId>                   # Get assigned deduction codes
+greenshades employee deductions-update [options] <employeeId>  # Replace all deduction codes (-f/-d/-c)
+greenshades employee deductions-remove <employeeId> [codeIds...] # Remove deduction codes (all of them if no code IDs given)
+```
+
+`benefits-remove` / `deductions-remove` call `POST /employees/{id}/payroll/benefits|deductions/delete` with a body of code-ID strings. With no code IDs they fetch the employee's current codes and remove all of them. Code IDs are large snowflakes — pass them as strings.
+
+```bash
+greenshades employee settlements [options]                     # Create new employee settlements (bulk, -f/-d)
+```
+
+### Direct Deposit
+
+```bash
+greenshades dd get <employeeId> [-o table|json]                # Get direct deposit settings
+greenshades dd update <employeeId> [options]                   # Update settings (--clear, -f/-d, or CLI flags; interactive if none)
+greenshades dd delete <employeeId> [--force]                   # Delete all direct deposit settings
+```
+
+### Employee Details
+
+```bash
+greenshades details pay-details <employeeId>    # Direct deposit settings
+greenshades details earn-codes <employeeId>     # Earning codes
+greenshades details tax-details <employeeId>    # Tax information
+greenshades details pay-schedule <employeeId>   # Pay schedule
+greenshades details time-off <employeeId>       # Time-off balances
+greenshades details benefits <employeeId>       # Benefit codes
+greenshades details deductions <employeeId>     # Deduction codes
 ```
 
 ### Paystubs
@@ -174,18 +225,6 @@ greenshades paystubs list                       # List paystubs from the last 2 
 greenshades paystubs details <payRecordId>      # Get a single paystub
 greenshades paystubs employee <employeeId>      # Get all paystubs for an employee
 greenshades paystubs payrun <payRunId>          # Get all paystubs for a pay run
-```
-
-### Employee Settings
-
-```bash
-greenshades settings pay-details <employeeId>   # Direct deposit settings
-greenshades settings earn-codes <employeeId>    # Earning codes
-greenshades settings tax-details <employeeId>   # Tax information
-greenshades settings pay-schedule <employeeId>  # Pay schedule
-greenshades settings time-off <employeeId>      # Time-off balances
-greenshades settings benefits <employeeId>      # Benefit codes
-greenshades settings deductions <employeeId>    # Deduction codes
 ```
 
 ### Departments
@@ -216,6 +255,10 @@ greenshades positions worker-compensation-codes     # List worker compensation c
 greenshades placements list                     # List all placements
 greenshades placements employee <employeeId>    # Get placements for an employee
 greenshades placements details <placementId>    # Get a single placement
+greenshades placements create [options] <placementId>   # Create a new placement
+greenshades placements update [options] <placementId>   # Modify an existing placement
+greenshades placements delete <placementId>     # Delete a single placement
+greenshades placements bulk [options]           # Update or create a list of placements
 ```
 
 ### Employee Classes
@@ -238,6 +281,15 @@ greenshades custom employee <employee-id>       # Get all custom fields for a sp
 ```bash
 greenshades payruns list                        # Get all payruns for the workspace
 greenshades payruns info <payrun-id>            # Get earning codes for a specific payrun
+greenshades payruns details <payrun-id>         # Get a single pay run
+greenshades payruns cancel <payrun-id>          # Cancel an existing pay run
+greenshades payruns employee-add [options] <payrun-id> <employee-id>    # Add an employee to a pay run
+greenshades payruns employee-update [options] <payrun-id> <employee-id> # Modify an employee in a pay run
+greenshades payruns employee-remove <payrun-id> <employee-id>           # Remove an employee from a pay run
+greenshades payruns earning <payrun-id> <earning-id>                    # Get a pay run earning by ID
+greenshades payruns earning-add [options] <payrun-id>                   # Create new pay run earnings
+greenshades payruns earning-update [options] <payrun-id>                # Update existing pay run earnings
+greenshades payruns earning-remove <payrun-id> <earning-id>             # Remove a pay run earning
 ```
 
 ### Reports
@@ -246,6 +298,40 @@ greenshades payruns info <payrun-id>            # Get earning codes for a specif
 greenshades report timeoff-balances             # Get all time-off balances for the workspace (exports to JSON)
 greenshades report timeoff-balances -o table    # View time-off balances output format as a table
 greenshades report benefits-deductions          # Get benefits and deductions report
+greenshades report costs -s <YYYY-MM-DD> -e <YYYY-MM-DD> [-o table]   # Cost report for a date range
+greenshades report costs --pay-run <payRunId>   # Cost report for a single pay run
+```
+
+### Earning Codes (workspace)
+
+```bash
+greenshades earnings list                       # Get all earning codes
+greenshades earnings details <earning-code>     # Get a single earning code
+greenshades earnings create [options]           # Create a new earning code
+greenshades earnings update [options] <earning-code>  # Modify an existing earning code
+greenshades earnings delete <earning-code>      # Remove an existing earning code
+```
+
+### Pay Schedules (workspace)
+
+```bash
+greenshades payschedules-setup list             # Get all pay schedules
+greenshades payschedules-setup details <schedule-id>  # Get a single pay schedule
+greenshades payschedules-setup employees <schedule-id> # Get employees assigned to a pay schedule
+```
+
+### Tax Setup (workspace)
+
+```bash
+greenshades tax-setup info                      # Get workspace payroll tax setup information
+```
+
+### Workspaces
+
+```bash
+greenshades workspace list                      # Get all authorized workspaces
+greenshades workspace contacts <workspace-id>   # Get contacts for a workspace
+greenshades workspace create [options]          # Create a new workspace under a parent
 ```
 
 ### Logs
