@@ -6,6 +6,7 @@
 <div align="center">
 <!-- Badges -->
 
+![Status: Beta](https://img.shields.io/badge/Status-Beta-orange?style=flat-square)
 [![Node.js >= 22](https://img.shields.io/badge/Node.js-%3E%3D22.0.0-3DA643?style=flat-square&logo=node.js)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-6BCBFB?style=flat-square)](LICENSE)
 [![Commands](https://img.shields.io/badge/Commands-116-blue?style=flat-square)](#commands)
