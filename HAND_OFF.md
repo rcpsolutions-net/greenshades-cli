@@ -304,3 +304,21 @@ These files are already single-command (~49-69 lines), not worth splitting:
 - `greenshades direct-deposit --help`: ✅ 3 subcommands visible
 - `greenshades details --help`: ✅ 7 subcommands visible
 - `greenshades paystubs --help`: ✅ 4 subcommands visible
+
+---
+
+## API Endpoint Coverage (Updated 2026-10-01)
+
+### Drift Test
+`test/endpoints.test.js` (run via `npm test`) cross-checks every `apiClient` call in `commands/` + `lib/` against `api_endpoints.json` (102 reference endpoints) via the hand-maintained mapping in `test/endpoints.map.json`. Deterministic, no network. Fails on: unmapped reference entry, stale mapped call, unmapped code call, or new dynamic call site outside `dynamicPassthrough`.
+
+### Coverage Status: 100 implemented / 2 beta-unverified / 0 missing
+- **Employee settlements** (`POST /employees/settlements`) — was the one missing endpoint; now implemented as `employee settlements` (bulk, `-f`/`-d` JSON array of `{ employeeId, payPeriod, checkNumber?, payPeriodStart? }`).
+- **Single-pay-run cost report** (`GET /payroll/reports/pay-runs/{payRunId}/cost`) — was partially covered; now exposed via `report costs --pay-run <id>` (distinct path from the date-range `GET /payroll/reports/cost`).
+- **Reference file URL fixes** — `api_endpoints.json` had two wrong doc URLs for the cost reports: single-pay-run pointed at the date-range page, and date-range pointed at a 404 page. Both corrected (`executepayruncostreport` / `executecostreport`).
+
+### Remaining beta-unverified (needs live API to resolve)
+| Endpoint | Issue |
+|---|---|
+| `DELETE /employees/*/payroll/benefits` | Reference documents `POST`; code uses `DELETE` — confirm against live API |
+| `DELETE /employees/*/payroll/deductions` | Reference documents `POST`; code uses `DELETE` — confirm against live API |

@@ -465,7 +465,7 @@
     "category": "Payroll: Reports",
     "name": "Build a cost report based on a single pay run",
     "method": "GET",
-    "url": "https://developer.greenshades.com/v1.0.20260302/reference/executecostreport"
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/executepayruncostreport"
   },
   {
     "category": "Payroll: Reports",
@@ -477,7 +477,7 @@
     "category": "Payroll: Reports",
     "name": "Build a cost report based on a date range",
     "method": "GET",
-    "url": "https://developer.greenshades.com/v1.0.20260302/reference/executecostdaterangereport"
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/executecostreport"
   },
   {
     "category": "Payroll: Reports",

@@ -606,6 +606,45 @@ function createEmployeeCommands() {
       }
     });
 
+  // --- SETTLEMENTS (POST /employees/settlements) ---
+  employees.command('settlements')
+    .description('Create new employee settlements (bulk)')
+    .option('-f, --file <filePath>', 'Path to JSON file with settlement array')
+    .option('-d, --data <jsonData>', 'Raw JSON string of settlement array')
+    .action(async (options: any) => {
+      try {
+        let settlements: any[];
+
+        if (options.file) {
+          const fs = await import('node:fs');
+          if (!fs.existsSync(options.file)) {
+            console.error(chalk.red(`File not found: ${options.file}`));
+            process.exit(1);
+          }
+          settlements = JSON.parse(fs.readFileSync(options.file, 'utf-8'));
+        } else if (options.data) {
+          settlements = JSON.parse(options.data);
+        } else {
+          console.error(chalk.red('You must provide settlements via --file or --data.'));
+          process.exit(1);
+        }
+
+        if (!Array.isArray(settlements) || settlements.length === 0) {
+          console.error(chalk.red('Settlements must be a non-empty JSON array of { employeeId, payPeriod, checkNumber?, payPeriodStart? }.'));
+          process.exit(1);
+        }
+
+        console.log(chalk.blue(`Creating ${settlements.length} employee settlement(s)...`));
+        const response = await apiClient.post('/employees/settlements', settlements);
+
+        console.log(JSON.stringify(response.data, null, 2));
+        console.log(chalk.green(`✅ Successfully created ${settlements.length} employee settlement(s).`));
+      } catch (error: any) {
+        console.error(chalk.red(`Error creating employee settlements:`, error.message));
+        process.exit(1);
+      }
+    });
+
   return employees;
 }
 
