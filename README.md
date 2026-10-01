@@ -1,12 +1,12 @@
 # Today's Addition
-# Walkthrough: Dedicated Direct Deposit Command Session for gs-cli
+# Walkthrough: Dedicated Direct Deposit Command Session for greenshades-cli
 
-Implemented a dedicated command group `direct-deposit` (alias: `dd`) in [gs-cli](file:///home/lham/dev/cli/gs-cli) to support GET, PUT (update/overwrite/clear), and DELETE operations on employee direct deposit settings according to the Greenshades OpenAPI specs.
+Implemented a dedicated command group `direct-deposit` (alias: `dd`) in [greenshades-cli](file:///home/lham/dev/cli/greenshades-cli) to support GET, PUT (update/overwrite/clear), and DELETE operations on employee direct deposit settings according to the Greenshades OpenAPI specs.
 
 ## Changes Made
 
 ### 1. Created Command Module
-[commands/direct-deposit.ts](file:///home/lham/dev/cli/gs-cli/commands/direct-deposit.ts)
+[commands/direct-deposit.ts](file:///home/lham/dev/cli/greenshades-cli/commands/direct-deposit.ts)
 
 Implemented:
 - **`get|pull <employeeId>`**:
@@ -33,7 +33,7 @@ Implemented:
   - Includes confirmation prompt (bypassable with `-y` or `--force`).
 
 ### 2. Registered in Main CLI Entrypoint
-[index.js](file:///home/lham/dev/cli/gs-cli/index.js)
+[index.js](file:///home/lham/dev/cli/greenshades-cli/index.js)
 
 - Imported `createDirectDepositCommands` and added it to the Commander program:
   ```javascript
@@ -97,7 +97,7 @@ greenshades dd delete <employeeId> --force
 - Verified automatic authentication token refresh against live Greenshades auth.
 
 
-# gs-cli
+# greenshades-cli
 
 A command-line interface for interacting with the [Greenshades](https://www.greenshades.com/) HR/Payroll API. Query employees, paystubs, payroll settings, departments, positions, placements, and more directly from your terminal.
 
@@ -110,7 +110,7 @@ A command-line interface for interacting with the [Greenshades](https://www.gree
 
 ```bash
 git clone <repo-url>
-cd gs-cli
+cd greenshades-cli
 npm install
 npm link
 ```

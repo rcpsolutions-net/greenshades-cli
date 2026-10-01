@@ -1,5 +1,5 @@
 {
-  "name": "gs-cli",
+  "name": "greenshades-cli",
   "version": "1.0.0",
   "description": "GS cli tool",
   "main": "index.js",

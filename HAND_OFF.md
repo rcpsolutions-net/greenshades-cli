@@ -1,6 +1,6 @@
-# gs-cli AI-Friendly Refactor Plan
+# greenshades-cli AI-Friendly Refactor Plan
 
-> **Scope**: `gs-cli` (current directory only)
+> **Scope**: `greenshades-cli` (current directory only)
 > **Principle**: Behavior-preserving structural refactor. One symbol per file. Colocate private helpers. Preserve git history via `git mv`.
 > **Abort conditions**: >40 files touched → abort. No test/typecheck to verify → ask before moving. `package.json` exports/main fields changed → flag, don't move silently.
 
