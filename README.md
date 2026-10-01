@@ -1,14 +1,11 @@
-<div align="center" style="background: #cccccc;">
-
 ```text
-greenshades-cli 
 
- ⢀⡀ ⡀⣀ ⢀⡀ ⢀⡀ ⣀⡀ ⢀⣀ ⣇⡀ ⢀⣀ ⢀⣸ ⢀⡀ ⢀⣀    ⢀⣀ ⡇ ⠄ 
+⢀⡀ ⡀⣀ ⢀⡀ ⢀⡀ ⣀⡀ ⢀⣀ ⣇⡀ ⢀⣀ ⢀⣸ ⢀⡀ ⢀⣀    ⢀⣀ ⡇ ⠄ 
 ⣑⡺ ⠏  ⠣⠭ ⠣⠭ ⠇⠸ ⠭⠕ ⠇⠸ ⠣⠼ ⠣⠼ ⠣⠭ ⠭⠕ ⠉⠉ ⠣⠤ ⠣ ⠇
  
-v0.1a (beta)
+vo.1a (beta)
 ```
-
+<div align="center">
 <!-- Badges -->
 
 [![Node.js >= 22](https://img.shields.io/badge/Node.js-%3E%3D22.0.0-3DA643?style=flat-square&logo=node.js)](https://nodejs.org/)
