@@ -1,6 +1,45 @@
 # greenshades-cli
 
+<div align="center">
+
+```text
+                                           #                 #
+  mmmm   m mm   mmm    mmm   m mm    mmm   # mm    mmm    mmm#   mmm    mmm
+ #" "#   #"  " #"  #  #"  #  #"  #  #   "  #"  #  "   #  #" "#  #"  #  #   "
+ #   #   #     #""""  #""""  #   #   """m  #   #  m"""#  #   #  #""""   """m
+ "#m"#   #     "#mm"  "#mm"  #   #  "mmm"  #   #  "mm"#  "#m##  "#mm"  "mmm"
+  m  #
+   ""
+
+               ""#      "
+         mmm     #    mmm
+        #"  "    #      #
+  """   #        #      #
+        "#mm"    "mm  mm#mm
+```
+
+<!-- Badges -->
+
+[![Node.js >= 22](https://img.shields.io/badge/Node.js-%3E%3D22.0.0-3DA643?style=flat-square&logo=node.js)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-6BCBFB?style=flat-square)](LICENSE)
+[![Commands](https://img.shields.io/badge/Commands-116-blue?style=flat-square)](#commands)
+[![Command Groups](https://img.shields.io/badge/Command%20Groups-19-purple?style=flat-square)](#commands)
+
 A command-line interface for interacting with the [Greenshades](https://www.greenshades.com/) HR/Payroll API. Query employees, paystubs, payroll settings, departments, positions, placements, and more directly from your terminal.
+
+### At a Glance
+
+| 📥 Get | ✏️ Create | ✂️ Update | 🗑 Delete | 🔐 Auth |
+|---|---|---|---|---|
+| `employee pull 123` | `employee create ...` | `employee update 123 ...` | `placements delete 456` | `auth login` |
+
+| 💵 Paystubs | 🏦 Direct Deposit | 🧾 Payruns | 🪝 Webhooks | 📊 Reports |
+|---|---|---|---|---|
+| `paystubs list` | `dd get 123` | `payruns list` | `webhooks list` | `report costs` |
+
+</div>
+
+---
 
 ## Requirements
 
