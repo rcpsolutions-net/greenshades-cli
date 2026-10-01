@@ -1,0 +1,615 @@
+[
+  {
+    "category": "Identity",
+    "name": "Get information about the current security token",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getidentity"
+  },
+  {
+    "category": "Workspaces",
+    "name": "Get all authorized workspaces",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getworkspaces"
+  },
+  {
+    "category": "Workspaces",
+    "name": "Get contacts for a workspace",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getworkspacecontacts"
+  },
+  {
+    "category": "Workspaces",
+    "name": "Create a new workspace under a parent company",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createworkspace"
+  },
+  {
+    "category": "Employees: Basic",
+    "name": "Create a new employee",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createemployee"
+  },
+  {
+    "category": "Employees: Basic",
+    "name": "Get all employees by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployees"
+  },
+  {
+    "category": "Employees: Basic",
+    "name": "Get an employee by Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployee"
+  },
+  {
+    "category": "Employees: Basic",
+    "name": "Modify an existing employee",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateemployee"
+  },
+  {
+    "category": "Employees: Basic",
+    "name": "Bulk create or update employees",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/bulkemployeeupdate"
+  },
+  {
+    "category": "Employees: Basic",
+    "name": "Get an employee's contacts",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeecontacts"
+  },
+  {
+    "category": "Employees: Basic",
+    "name": "Get an employee's dependents",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeedependents"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Get an employee's direct deposit settings",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeedirectdeposit"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Update an employee's direct deposit settings",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateemployeedirectdeposit"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Delete an employee's direct deposit settings",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteemployeedirectdeposit"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Get an employee's assigned earning codes",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeeearnings"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Get setup information about a specific employee payroll tax",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeepayrolltax"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Save setup information about a specific employee payroll tax",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/saveemployeepayrolltax"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Get an employee's assigned payroll pay schedule",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeepayrollpayschedule"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Set an employee's assigned payroll pay schedule",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/saveemployeepayrollpayschedule"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Remove an employee's payroll pay schedule assignment",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteemployeepayrollpayschedule"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Get all time off balances for an employee",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getallbalancesforemployee"
+  },
+  {
+    "category": "Employees: Payroll",
+    "name": "Assign or update time-off code for an employee",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/upsertemployeetimeoffcode"
+  },
+  {
+    "category": "Employees: Payroll Settings",
+    "name": "Get an employee's assigned benefit codes",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeebenefits"
+  },
+  {
+    "category": "Employees: Payroll Settings",
+    "name": "Assign and/or Update an employee's benefit codes",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/assignupdateemployeebenefits"
+  },
+  {
+    "category": "Employees: Payroll Settings",
+    "name": "Remove benefit code assignment(s) from employee",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/removeemployeebenefits"
+  },
+  {
+    "category": "Employees: Payroll Settings",
+    "name": "Get an employee's assigned deduction codes",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeedeductions"
+  },
+  {
+    "category": "Employees: Payroll Settings",
+    "name": "Assign and/or Update an employee's deduction codes",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/assignupdateemployeedeductions"
+  },
+  {
+    "category": "Employees: Payroll Settings",
+    "name": "Remove deduction code assignment(s) from employee",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/removeemployeedeductions"
+  },
+  {
+    "category": "Employees: Custom Fields",
+    "name": "Create a new custom field",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createcustomfield"
+  },
+  {
+    "category": "Employees: Custom Fields",
+    "name": "Get all custom fields by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getcustomfields"
+  },
+  {
+    "category": "Employees: Custom Fields",
+    "name": "Get a custom field by its Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getcustomfield"
+  },
+  {
+    "category": "Employees: Custom Fields",
+    "name": "Modify an existing custom field",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updatecustomfield"
+  },
+  {
+    "category": "Employees: Custom Fields",
+    "name": "Remove an existing custom field",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deletecustomfield"
+  },
+  {
+    "category": "Employees: Custom Fields",
+    "name": "Append or update an employee's custom field values",
+    "method": "PATCH",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/patchemployeecustomfieldvalues"
+  },
+  {
+    "category": "Employees: Custom Fields",
+    "name": "Get all custom fields for a given employee",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeecustomfieldvalues"
+  },
+  {
+    "category": "Employee Classes",
+    "name": "Get all employee classes by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeeclasses"
+  },
+  {
+    "category": "Employee Classes",
+    "name": "Create a new employee class",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createemployeeclass"
+  },
+  {
+    "category": "Employee Classes",
+    "name": "Get an employee class by its code",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeeclass"
+  },
+  {
+    "category": "Employee Classes",
+    "name": "Modify an existing employee class",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateemployeeclass"
+  },
+  {
+    "category": "Employee Classes",
+    "name": "Remove an existing employee class",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteemployeeclass"
+  },
+  {
+    "category": "Employee Settlements",
+    "name": "Creates new employee settlements",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createemployeesettlements"
+  },
+  {
+    "category": "Departments",
+    "name": "Get all departments by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getdepartments"
+  },
+  {
+    "category": "Departments",
+    "name": "Create a new department",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createdepartment"
+  },
+  {
+    "category": "Departments",
+    "name": "Get a department by its code",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getdepartment"
+  },
+  {
+    "category": "Departments",
+    "name": "Modify an existing department",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updatedepartment"
+  },
+  {
+    "category": "Departments",
+    "name": "Remove an existing department",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deletedepartment"
+  },
+  {
+    "category": "Positions",
+    "name": "Get all positions by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpositions"
+  },
+  {
+    "category": "Positions",
+    "name": "Create a new position",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createposition"
+  },
+  {
+    "category": "Positions",
+    "name": "Get a position by its code",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getposition"
+  },
+  {
+    "category": "Positions",
+    "name": "Modify an existing position",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateposition"
+  },
+  {
+    "category": "Positions",
+    "name": "Remove an existing position",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteposition"
+  },
+  {
+    "category": "Positions",
+    "name": "Get all worker compensation code mappings",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getallworkercompensationcodemappings"
+  },
+  {
+    "category": "Work Locations",
+    "name": "Get all work locations by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getworklocations"
+  },
+  {
+    "category": "Work Locations",
+    "name": "Create a new work location",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createworklocation"
+  },
+  {
+    "category": "Work Locations",
+    "name": "Get a work location by its id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getworklocation"
+  },
+  {
+    "category": "Work Locations",
+    "name": "Modify an existing work location",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateworklocation"
+  },
+  {
+    "category": "Work Locations",
+    "name": "Remove an existing work location",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteworklocation"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Get all earnings by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getearnings"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Create a new earning",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createearning"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Get an earning by its code",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getearning"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Modify an existing earning",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateearning"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Remove an existing earning",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteearning"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Get all pay schedules by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayschedules"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Get a pay schedule by its id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayschedule"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Get all employees assigned to the given pay schedule",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayrunemployees"
+  },
+  {
+    "category": "Payroll: Setup",
+    "name": "Get information about taxes",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/gettaxsetup"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Get all pay runs by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayruns"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Get a pay run by its id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayrun"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Cancel a pay run",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/cancelpayrun"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Add an employee to a pay run",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/addemployeepayrun"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Modify information about an employee included in a pay run",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateemployeepayrun"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Remove an employee from a pay run",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/removeemployeepayrun"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Get all pay run earnings in a given pay run",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayrunearnings"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Create new pay run earnings",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createpayrunearnings"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Update existing pay run earnings",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updatepayrunearnings"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Get a pay run earning by its id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayrunearning"
+  },
+  {
+    "category": "Payroll: Pay Runs",
+    "name": "Remove an existing pay run earning",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deletepayrunearning"
+  },
+  {
+    "category": "Payroll: Reports",
+    "name": "Build a cost report based on a single pay run",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/executecostreport"
+  },
+  {
+    "category": "Payroll: Reports",
+    "name": "Build a benefit and deduction details report based on a single pay run",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/executebenefitdeductionreport"
+  },
+  {
+    "category": "Payroll: Reports",
+    "name": "Build a cost report based on a date range",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/executecostdaterangereport"
+  },
+  {
+    "category": "Payroll: Reports",
+    "name": "Get all employee time off balances for a workspace",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getworkspacebalances"
+  },
+  {
+    "category": "Pay History",
+    "name": "Get pay record information by employee id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeepayrecords"
+  },
+  {
+    "category": "Pay History",
+    "name": "Get pay record information by pay run id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayrunpayrecords"
+  },
+  {
+    "category": "Pay History",
+    "name": "Get a pay record by its ID",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayrecord"
+  },
+  {
+    "category": "Pay History",
+    "name": "Get pay record information by workspace id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getworkspacepayrecords"
+  },
+  {
+    "category": "Pay History",
+    "name": "Get a reference link providing one-use authorization to a pay record",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpayrecordlink"
+  },
+  {
+    "category": "Pay History",
+    "name": "Get a pay document using an authorization code",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getpaydocument"
+  },
+  {
+    "category": "Employee Placements",
+    "name": "Get the list of employee placements for a given employee",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getemployeeplacements"
+  },
+  {
+    "category": "Employee Placements",
+    "name": "Get the list of employee placements for a given workspace",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getworkspaceplacements"
+  },
+  {
+    "category": "Employee Placements",
+    "name": "Update or create a list of employee placements",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/bulkplacements"
+  },
+  {
+    "category": "Employee Placements",
+    "name": "Retrieve placement data for a single placement",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getplacement"
+  },
+  {
+    "category": "Employee Placements",
+    "name": "Create a new placement",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createplacement"
+  },
+  {
+    "category": "Employee Placements",
+    "name": "Modify an existing placement",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updateplacement"
+  },
+  {
+    "category": "Employee Placements",
+    "name": "Delete a single placement",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deleteplacement"
+  },
+  {
+    "category": "Web Hooks",
+    "name": "Create a webhook event subscription",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/createwebhookeventsubscription"
+  },
+  {
+    "category": "Web Hooks",
+    "name": "Get all webhook event subscriptions by workspace Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getwebhookeventsubscriptions"
+  },
+  {
+    "category": "Web Hooks",
+    "name": "Get one webhook event subscription by its id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getwebhookeventsubscription"
+  },
+  {
+    "category": "Web Hooks",
+    "name": "Update a webhook event subscription",
+    "method": "PUT",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/updatewebhookeventsubscription"
+  },
+  {
+    "category": "Web Hooks",
+    "name": "Remove a webhook event subscription",
+    "method": "DELETE",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/deletewebhookeventsubscription"
+  },
+  {
+    "category": "Web Hooks",
+    "name": "Test a webhook subscription event",
+    "method": "POST",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/testwebhooksubscription"
+  },
+  {
+    "category": "Logs",
+    "name": "Get all requests within date range",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getlogs"
+  },
+  {
+    "category": "Logs",
+    "name": "Get the request given the Id",
+    "method": "GET",
+    "url": "https://developer.greenshades.com/v1.0.20260302/reference/getlog"
+  }
+]
+
