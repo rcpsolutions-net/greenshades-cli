@@ -8,7 +8,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowJs": true,
-    "ignoreDeprecations": "6.0"
+    "ignoreDeprecations": "6.0",
+    "allowImportingTsExtensions": true
   },
   "include": ["commands/**/*.ts", "lib/**/*.ts"],
   "exclude": ["node_modules"]

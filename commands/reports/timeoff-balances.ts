@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import apiClient from '../../lib/api.ts';
 import config from '../../lib/config.js';
 import { subDays, format } from 'date-fns';
+import { writeFileSync } from 'node:fs';
 
 export function createTimeoffBalancesCommand(): Command {
   const timeoffBalances = new Command('timeoff-balances')
