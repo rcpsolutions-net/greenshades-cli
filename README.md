@@ -1,9 +1,7 @@
-# greenshades-cli
-
-<div align="center">
+<div align="center" style="background: #cccccc;">
 
 ```text
-greenshades-cli
+greenshades-cli 
 
  ⢀⡀ ⡀⣀ ⢀⡀ ⢀⡀ ⣀⡀ ⢀⣀ ⣇⡀ ⢀⣀ ⢀⣸ ⢀⡀ ⢀⣀    ⢀⣀ ⡇ ⠄ 
 ⣑⡺ ⠏  ⠣⠭ ⠣⠭ ⠇⠸ ⠭⠕ ⠇⠸ ⠣⠼ ⠣⠼ ⠣⠭ ⠭⠕ ⠉⠉ ⠣⠤ ⠣ ⠇
