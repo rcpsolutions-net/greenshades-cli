@@ -45,6 +45,94 @@ function createLocationCommands() {
       }
     });
 
+  // --- LOCATION CREATE (POST /worklocations) ---
+  locations.command('create')
+    .description('Create a new work location')
+    .option('-f, --file <filePath>', 'Path to JSON file with WorkLocation object')
+    .option('-d, --data <jsonData>', 'Raw JSON string of WorkLocation object')
+    .action(async (options: any) => {
+      try {
+        let locData: any;
+
+        if (options.file) {
+          const fs = await import('node:fs');
+          if (!fs.existsSync(options.file)) {
+            console.error(chalk.red(`File not found: ${options.file}`));
+            process.exit(1);
+          }
+          locData = JSON.parse(fs.readFileSync(options.file, 'utf-8'));
+        } else if (options.data) {
+          locData = JSON.parse(options.data);
+        } else {
+          console.error(chalk.red('You must provide data via --file or --data.'));
+          process.exit(1);
+        }
+
+        console.log(chalk.blue('Creating new work location...'));
+        const response = await apiClient.post('/worklocations', locData);
+
+        console.log(JSON.stringify(response.data, null, 2));
+        console.log(chalk.green('✅ Successfully created work location.'));
+      } catch (error: any) {
+        console.error(chalk.red('Error creating work location:', error.message));
+        process.exit(1);
+      }
+    });
+
+  // --- LOCATION UPDATE (PUT /worklocations/{code}) ---
+  locations.command('update <location-code>')
+    .description('Modify an existing work location')
+    .option('-f, --file <filePath>', 'Path to JSON file with WorkLocation object')
+    .option('-d, --data <jsonData>', 'Raw JSON string of WorkLocation object')
+    .action(async (locCode: string, options: any) => {
+      try {
+        let locData: any;
+
+        if (options.file) {
+          const fs = await import('node:fs');
+          if (!fs.existsSync(options.file)) {
+            console.error(chalk.red(`File not found: ${options.file}`));
+            process.exit(1);
+          }
+          locData = JSON.parse(fs.readFileSync(options.file, 'utf-8'));
+        } else if (options.data) {
+          locData = JSON.parse(options.data);
+        } else {
+          console.error(chalk.red('You must provide data via --file or --data.'));
+          process.exit(1);
+        }
+
+        if (locData.code && locData.code !== locCode) {
+          console.error(chalk.red(`Mismatch: CLI arg (${locCode}) does not match body code (${locData.code}).`));
+          process.exit(1);
+        }
+        locData.code = locCode;
+
+        console.log(chalk.blue(`Updating work location ${locCode}...`));
+        await apiClient.put(`/worklocations/${locCode}`, locData);
+
+        console.log(chalk.green(`✅ Successfully updated work location ${locCode}.`));
+      } catch (error: any) {
+        console.error(chalk.red(`Error updating work location ${locCode}:`, error.message));
+        process.exit(1);
+      }
+    });
+
+  // --- LOCATION DELETE (DELETE /worklocations/{code}) ---
+  locations.command('delete <location-code>')
+    .description('Remove an existing work location')
+    .action(async (locCode) => {
+      try {
+        console.log(chalk.blue(`Deleting work location ${locCode}...`));
+
+        await apiClient.delete(`/worklocations/${locCode}`);
+        console.log(chalk.green(`✅ Successfully deleted work location ${locCode}.`));
+      } catch (error: any) {
+        console.error(chalk.red(`Error deleting work location ${locCode}:`, error.message));
+        process.exit(1);
+      }
+    });
+
     return locations;
 }
 
