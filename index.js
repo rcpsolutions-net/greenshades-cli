@@ -17,6 +17,10 @@ import createClassCommands from './commands/classes.ts';
 import createCustomFieldCommands from './commands/custom.ts';
 import createLogCommands from './commands/logs.ts';
 import createDirectDepositCommands from './commands/direct-deposit/index.ts';
+import createEarningCommands from './commands/earnings.ts';
+import createPaySchedulesSetupCommands from './commands/payschedules-setup.ts';
+import createTaxSetupCommands from './commands/tax-setup.ts';
+import createWorkspaceCommands from './commands/workspace.ts';
 
 const program = new Command();
 
@@ -41,6 +45,10 @@ program.addCommand(createPayrunCommands());
 program.addCommand(createClassCommands());
 program.addCommand(createCustomFieldCommands());
 program.addCommand(createLogCommands());
+program.addCommand(createEarningCommands());
+program.addCommand(createPaySchedulesSetupCommands());
+program.addCommand(createTaxSetupCommands());
+program.addCommand(createWorkspaceCommands());
 
 program.command('test')
   .description('Use this command to verify that the CLI is set up correctly and can execute commands without errors.\n\n')
